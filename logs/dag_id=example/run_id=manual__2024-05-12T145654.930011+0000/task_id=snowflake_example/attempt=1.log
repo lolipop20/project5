@@ -1,0 +1,53 @@
+[2024-05-12T14:57:02.650+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-12T14:57:02.698+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example.snowflake_example manual__2024-05-12T14:56:54.930011+00:00 [queued]>
+[2024-05-12T14:57:02.712+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example.snowflake_example manual__2024-05-12T14:56:54.930011+00:00 [queued]>
+[2024-05-12T14:57:02.713+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2024-05-12T14:57:02.772+0000] {taskinstance.py:2327} INFO - Executing <Task(SnowflakeOperator): snowflake_example> on 2024-05-12 14:56:54.930011+00:00
+[2024-05-12T14:57:02.779+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=387) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-05-12T14:57:02.781+0000] {standard_task_runner.py:63} INFO - Started process 389 to run task
+[2024-05-12T14:57:02.781+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'example', 'snowflake_example', 'manual__2024-05-12T14:56:54.930011+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/create_table.py', '--cfg-path', '/tmp/tmpzffz_wj1']
+[2024-05-12T14:57:02.785+0000] {standard_task_runner.py:91} INFO - Job 34: Subtask snowflake_example
+[2024-05-12T14:57:02.884+0000] {task_command.py:426} INFO - Running <TaskInstance: example.snowflake_example manual__2024-05-12T14:56:54.930011+00:00 [running]> on host 960286af4a25
+[2024-05-12T14:57:03.094+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='example' AIRFLOW_CTX_TASK_ID='snowflake_example' AIRFLOW_CTX_EXECUTION_DATE='2024-05-12T14:56:54.930011+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-12T14:56:54.930011+00:00'
+[2024-05-12T14:57:03.096+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-12T14:57:03.168+0000] {sql.py:276} INFO - Executing: 
+ create or replace table dbt_dev.public.example_table (
+ id int,
+ first_name varchar(50),
+ last_name varchar(50)
+ );
+[2024-05-12T14:57:03.199+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-05-12T14:57:03.210+0000] {base.py:84} INFO - Using connection ID 'snowflake_conn' for task execution.
+[2024-05-12T14:57:03.211+0000] {connection.py:386} INFO - Snowflake Connector for Python Version: 3.7.1, Python Version: 3.12.2, Platform: Linux-5.15.146.1-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2024-05-12T14:57:03.212+0000] {connection.py:1211} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-05-12T14:57:03.213+0000] {connection.py:1221} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-05-12T14:57:05.537+0000] {ssl_wrap_socket.py:100} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-05-12T14:57:05.742+0000] {cursor.py:1032} INFO - query: [ALTER SESSION SET autocommit=False]
+[2024-05-12T14:57:05.846+0000] {cursor.py:1045} INFO - query execution done
+[2024-05-12T14:57:05.847+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2024-05-12T14:57:05.848+0000] {sql.py:457} INFO - Running statement: create or replace table dbt_dev.public.example_table (
+ id int,
+ first_name varchar(50),
+ last_name varchar(50)
+ );, parameters: None
+[2024-05-12T14:57:05.848+0000] {cursor.py:1032} INFO - query: [create or replace table dbt_dev.public.example_table ( id int, first_name varcha...]
+[2024-05-12T14:57:06.016+0000] {cursor.py:1045} INFO - query execution done
+[2024-05-12T14:57:06.017+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2024-05-12T14:57:06.017+0000] {sql.py:466} INFO - Rows affected: 1
+[2024-05-12T14:57:06.019+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/snowflake/hooks/snowflake.py:393: AirflowProviderDeprecationWarning: Call to deprecated method _make_common_data_structure. (The `_make_serializable` method is deprecated and support will be removed in a future version of the common.sql provider. Please update the DbApiHook's provider to a version based on common.sql >= 1.9.1.)
+  result = self._make_common_data_structure(handler(cur))  # type: ignore[attr-defined]
+
+[2024-05-12T14:57:06.019+0000] {snowflake.py:402} INFO - Rows affected: 1
+[2024-05-12T14:57:06.020+0000] {snowflake.py:403} INFO - Snowflake query id: 01b447e1-3201-1514-0008-9f1a0002e3b2
+[2024-05-12T14:57:06.020+0000] {cursor.py:1032} INFO - query: [COMMIT]
+[2024-05-12T14:57:06.105+0000] {cursor.py:1045} INFO - query execution done
+[2024-05-12T14:57:06.106+0000] {cursor.py:1205} INFO - Number of results in first chunk: 1
+[2024-05-12T14:57:06.107+0000] {connection.py:734} INFO - closed
+[2024-05-12T14:57:06.161+0000] {connection.py:740} INFO - No async queries seem to be running, deleting session
+[2024-05-12T14:57:06.223+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-12T14:57:06.307+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=example, task_id=snowflake_example, execution_date=20240512T145654, start_date=20240512T145702, end_date=20240512T145706
+[2024-05-12T14:57:06.370+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-12T14:57:06.394+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-05-12T14:57:06.438+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
