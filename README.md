@@ -4,6 +4,14 @@
 **Click pada example, kemudian jalakan script dengan click icon run**
 ![Alt image](https://github.com/lolipop20/project5/blob/main/pics/create-table-step-dag.png)
 
+```
+ create or replace table dbt_dev.public.example_table (
+ id int,
+ first_name varchar(50),
+ last_name varchar(50)
+ );
+```
+
 **Check pada Snowflake**
 ![Alt image](https://github.com/lolipop20/project5/blob/main/pics/create-table.png)
 
