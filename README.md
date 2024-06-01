@@ -33,12 +33,14 @@
 
 ## AIRFLOW CONNECTOR_3
 **Check pada logs create table**
+
 ```
 def count1(**context):
     dwh_hook = SnowflakeHook(snowflake_conn_id="snowflake_conn")
     result = dwh_hook.get_first("select count(*) from dbt_dev.public.customer")
     logging.info("Number of rows in `dbt_dev.public.customer`  - %s", result[0])
 ```
+
 **hasil logs**
 ![Alt logs image](https://github.com/lolipop20/project5/blob/main/pics/snowflake_connector_count_query_DAG.png)
 
