@@ -42,6 +42,7 @@ def count1(**context):
 ```
 
 **hasil logs**
+
 ![Alt logs image](https://github.com/lolipop20/project5/blob/main/pics/snowflake_connector_count_query_DAG.png)
 
 **check count rows in snowflake**
