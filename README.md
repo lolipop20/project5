@@ -40,7 +40,7 @@ def count1(**context):
     logging.info("Number of rows in `dbt_dev.public.customer`  - %s", result[0])
 ```
 **hasil logs**
-![Alt logs image](https://github.com/lolipop20/project5/blob/main/pics/snowflake_crud_create_table_DAG.png)
+![Alt logs image](https://github.com/lolipop20/project5/blob/main/pics/snowflake_connector_count_query_DAG.png)
 
 **check count rows in snowflake**
 ![alt image](https://github.com/lolipop20/project5/blob/main/pics/snowflake_connector_count_query_snowflake.png)
